@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianni Magi - Vino Toscano</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: url('public/sfondo.jpg') center/cover fixed;
+            background-color: #f8f8f8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 4px solid #8B1538;
+            overflow: hidden;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .header h1 {
+            color: #8B1538;
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            font-weight: normal;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Main content */
+        .main-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 0;
+        }
+        
+        /* Chi sono section */
+        .chi-sono {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        
+        .chi-sono h2 {
+            color: #8B1538;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        
+        .chi-sono p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .chi-sono .highlight {
+            color: #8B1538;
+            font-style: italic;
+        }
+        
+        .profile-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Cataloghi section */
+        .cataloghi {
+            margin-bottom: 50px;
+        }
+        
+        .cataloghi h2 {
+            color: #8B1538;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: normal;
+        }
+        
+        .cataloghi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .catalogo-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .catalogo-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .antinori {
+            background: linear-gradient(135deg, #f4f1e8, #e8e0d0);
+        }
+        
+        .bolis {
+            background: linear-gradient(135deg, #f8e8f0, #f0d8e8);
+        }
+        
+        .catalogo-logo {
+            height: 70px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .catalogo-logo img {
+            max-height: 100%;
+            max-width: 200px;
+        }
+        
+        .btn-catalogo {
+            background: #8B1538;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-catalogo:hover {
+            background: #A01B42;
+        }
+        
+        /* Contact form */
+        .contatti {
+            background: rgba(248, 248, 248, 0.9);
+            padding: 40px 0;
+        }
+        
+        .contatti h2 {
+            color: #8B1538;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: normal;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8B1538;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            background: #8B1538;
+            color: white;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: block;
+            margin: 20px auto 0;
+        }
+        
+        .btn-submit:hover {
+            background: #A01B42;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #8B1538;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .footer-info {
+            color: #ddd;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .chi-sono {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .cataloghi-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .chi-sono h2,
+            .cataloghi h2,
+            .contatti h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="public/logo.jpg" alt="Gianni Magi Logo">
+            </div>
+            <h1>Benvenuti nel mondo del vino toscano, raccontato da Gianni Magi</h1>
+            <p>Passione, territorio e tradizione della mia Toscana</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Chi sono section -->
+            <section class="chi-sono">
+                <div>
+                    <h2>Chi sono</h2>
+                    <p>Un appassionato pastore/vino di vino tram Toscana, leggottati ad trasce mezzanti, sia chiamate in <span class="highlight">passione e precacci mi passione</span> peru eccelle vini Toscani. Ogni il 5 ogge <span class="highlight">reivinare</span> di essere entastesi ammiantchi di <span class="highlight">rigovaziore</span> ripoiliore testazlo e organizzazioni.</p>
+                </div>
+                <div>
+                    <img src="public/pic.jpg" alt="Gianni Magi" class="profile-image">
+                </div>
+            </section>
+
+            <!-- Cataloghi section -->
+            <section class="cataloghi">
+                <h2>Cataloghi e Collaborazioni</h2>
+                <div class="cataloghi-grid">
+                    <div class="catalogo-item antinori">
+                        <div class="catalogo-logo">
+                            <img src="public/Antinori-Logo.jpg" alt="Antinori">
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1JiwtnNVNRI00Mrz0oW20llzXhfpk6NhD?usp=sharing" target="_blank" class="btn-catalogo">Sfoglia il catalogo</a>
+                    </div>
+                    <div class="catalogo-item bolis">
+                        <div class="catalogo-logo">
+                            <img src="public/Bolis-Logo.jpeg" alt="Bolis">
+                        </div>
+                        <a href="#" class="btn-catalogo">Sfoglia il catalogo</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Contact section -->
+    <section class="contatti">
+        <div class="container">
+            <h2>Contattami</h2>
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Messaggio" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Invia</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/logo.jpg" alt="Gianni Magi">
+                    <span>GIANNI MAGI</span>
+                </div>
+                <div class="footer-info">
+                    Via del vino, Toscana, Italia
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">@</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
