@@ -28,38 +28,61 @@
         /* Header */
         .header {
             background: rgba(255, 255, 255, 0.95);
-            padding: 30px 0;
-            text-align: center;
+            padding: 24px 0 16px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
         .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             border: 4px solid #8B1538;
             overflow: hidden;
+            flex-shrink: 0;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
         .logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+        .header-text {
+            flex: 1 1 300px;
+            min-width: 220px;
+        }
         .header h1 {
             color: #8B1538;
-            font-size: 2.2em;
+            font-size: 2.1em;
             margin-bottom: 8px;
             font-weight: normal;
+            text-align: left;
         }
-        
         .header p {
             color: #666;
             font-size: 1.1em;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0;
+            text-align: left;
+        }
+        @media (max-width: 700px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .header h1, .header p {
+                text-align: center;
+            }
         }
         
         /* Main content */
@@ -117,9 +140,9 @@
         
         .cataloghi-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 40px;
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
@@ -296,31 +319,28 @@
         }
         
         /* Responsive */
+        @media (max-width: 900px) {
+            .cataloghi-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
         @media (max-width: 768px) {
             .chi-sono {
                 grid-template-columns: 1fr;
                 gap: 40px;
                 text-align: center;
             }
-            
-            .cataloghi-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
             .form-row {
                 grid-template-columns: 1fr;
             }
-            
             .footer-content {
                 flex-direction: column;
                 gap: 20px;
             }
-            
             .header h1 {
                 font-size: 2em;
             }
-            
             .chi-sono h2,
             .cataloghi h2,
             .contatti h2 {
@@ -332,12 +352,14 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
+        <div class="container header-inner">
             <div class="logo">
                 <img src="public/logo.jpg" alt="Gianni Magi Logo">
             </div>
-            <h1>Benvenuti nel mondo del vino toscano, raccontato da Gianni Magi</h1>
-            <p>Passione, territorio e tradizione della mia Toscana</p>
+            <div class="header-text">
+                <h1>Passione e storie di vino toscano</h1>
+                <p>Passione, territorio e tradizione della mia Toscana</p>
+            </div>
         </div>
     </header>
 
@@ -348,7 +370,7 @@
             <section class="chi-sono">
                 <div>
                     <h2>Chi sono</h2>
-                    <p>Un appassionato pastore/vino di vino tram Toscana, leggottati ad trasce mezzanti, sia chiamate in <span class="highlight">passione e precacci mi passione</span> peru eccelle vini Toscani. Ogni il 5 ogge <span class="highlight">reivinare</span> di essere entastesi ammiantchi di <span class="highlight">rigovaziore</span> ripoiliore testazlo e organizzazioni.</p>
+                    <p>Mi chiamo Gianni Magi e sono un grande appassionato di vino toscano. Da anni mi dedico con entusiasmo alla scoperta, alla degustazione e alla promozione dei migliori vini della mia terra. Credo profondamente nel valore della tradizione, del territorio e delle persone che rendono unico ogni calice. Attraverso collaborazioni con cantine storiche e produttori locali, racconto la Toscana del vino con passione, autenticità e rispetto per le sue radici. Il mio obiettivo è condividere emozioni, storie e sapori che solo il vino toscano sa regalare.</p>
                 </div>
                 <div>
                     <img src="public/pic.jpg" alt="Gianni Magi" class="profile-image">
@@ -369,7 +391,25 @@
                         <div class="catalogo-logo">
                             <img src="public/Bolis-Logo.jpeg" alt="Bolis">
                         </div>
-                        <a href="#" class="btn-catalogo">Sfoglia il catalogo</a>
+                        <a href="https://drive.google.com/drive/folders/1GvUzadZUxOcceYVFcDHP3M8ZNi_c8MsP?usp=sharing" target="_blank" class="btn-catalogo">Sfoglia il catalogo</a>
+                    </div>
+                    <div class="catalogo-item meleto" style="background: linear-gradient(135deg, #f0f4e8, #e0ecd0);">
+                        <div class="catalogo-logo">
+                            <img src="public/castello_di_meleto-Logo.png" alt="Castello di Meleto">
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1Cbh9nCxUBg__1tleu0D0OkZDY1ZttqGc?usp=sharing" target="_blank" class="btn-catalogo">Sfoglia il catalogo</a>
+                    </div>
+                    <div class="catalogo-item cotarella" style="background: linear-gradient(135deg, #f4f8e8, #e0f0d0);">
+                        <div class="catalogo-logo">
+                            <img src="public/famiglia-cofarella-logo.svg" alt="Famiglia Cotarella">
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/17hJ4rgS0TugrTR2TrkE5KBTLLmQggZYG?usp=sharing" target="_blank" class="btn-catalogo">Sfoglia il catalogo</a>
+                    </div>
+                    <div class="catalogo-item jermann" style="background: linear-gradient(135deg, #e8f4f8, #d0e0ec);">
+                        <div class="catalogo-logo">
+                            <img src="public/jermann-logo.png" alt="Famiglia Jermann">
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/1IXqukhTuAHPiPCb6xSFnyuHtz4X08-3n?usp=sharing" target="_blank" class="btn-catalogo">Sfoglia il catalogo</a>
                     </div>
                 </div>
             </section>
@@ -377,25 +417,6 @@
     </main>
 
     <!-- Contact section -->
-    <section class="contatti">
-        <div class="container">
-            <h2>Contattami</h2>
-            <form class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" placeholder="Nome" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Messaggio" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Invia</button>
-            </form>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -406,11 +427,23 @@
                     <span>GIANNI MAGI</span>
                 </div>
                 <div class="footer-info">
-                    Via del vino, Toscana, Italia
+                    Contattami: <a href="mailto:magigianni17@gmail.com" style="color:#fff;text-decoration:underline;">magigianni17@gmail.com</a>
                 </div>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="Twitter">@</a>
+                    <a href="https://www.linkedin.com/in/gianni-magi-999bb6a8/?originalSubdomain=it" target="_blank" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" rx="6" fill="#0A66C2"/>
+                            <path d="M7.5 8.5C8.32843 8.5 9 7.82843 9 7C9 6.17157 8.32843 5.5 7.5 5.5C6.67157 5.5 6 6.17157 6 7C6 7.82843 6.67157 8.5 7.5 8.5Z" fill="white"/>
+                            <rect x="6" y="10" width="3" height="8" rx="1.5" fill="white"/>
+                            <path d="M12 10H14.5C16.1569 10 17.5 11.3431 17.5 13V18H15V13.5C15 13.2239 14.7761 13 14.5 13C14.2239 13 14 13.2239 14 13.5V18H12V10Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/393299171005" target="_blank" aria-label="WhatsApp">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" rx="6" fill="#25D366"/>
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.205 5.077 4.372.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
